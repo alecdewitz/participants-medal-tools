@@ -1,13 +1,10 @@
 === Run SQL Query ===
-~Current Version:1.0.1~
-Contributors: sefirost
-Donate link: https://github.com/Sefirost/run-sql-query
-Tags: database, query, sql, manager, admin, DBA, mysql, phpMyAdmin
 Requires at least: 4.4
-Tested up to: 4.5.3
-Stable tag: 4.5.3
+Tested up to: 5.1.1
+Stable tag: 5.1.1
+Requires PHP: 5.2.4
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Run SQL Query is a simple plugin to quickly execute any type of SQL query into the WordPress's DB and export the results in a CSV format file.
 
@@ -49,10 +46,23 @@ Unlike other similar plugins it uses the driver provided by the MySQLi extension
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.4 =
+* Remove unnecessary files, fix issue with table
+
+= 1.0.2 =
+* Remove unnecessary files
+
+= 1.0.1 =
+* Added auto update capability
+
+= 1.0.0 =
 * Initial version
 
 == Upgrade Notice ==
+
+
+= 1.0.1 =
+Adds auto update capability
 
 = 1.0 =
 Initial version
