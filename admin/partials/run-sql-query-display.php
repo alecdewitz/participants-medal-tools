@@ -29,7 +29,7 @@ function endsWith($haystack, $needle)
 		// $output = '<select name="table" id="table"><option></option>';
 		foreach ( $this->tables as $table ) {
 			if (endsWith($table, 'participants_database'))
-			$output .= "<input readonly id='table' name='table' value='".esc_attr( $table )."'>".esc_html( $table )."</input>";
+			$output .= "<input readonly id='table' name='table' value='".esc_attr( $table )."'>";
 		}
 		// $output .= "</select>";
 		print $output;
@@ -37,7 +37,7 @@ function endsWith($haystack, $needle)
 	</p>
 	<label>Query</label>
 	<div class="form-field">
-		<textarea id="query" rows="3" cols="60"></textarea>
+		<textarea readonly id="query" rows="3" cols="60"></textarea>
 	</div>
 	<p>
 		<input type="button" id="run_query_button" class="button button-primary" value="Run Query" />
