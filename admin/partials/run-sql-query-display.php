@@ -29,11 +29,24 @@ function endsWith($haystack, $needle)
 		// $output = '<select name="table" id="table"><option></option>';
 		foreach ( $this->tables as $table ) {
 			if (endsWith($table, 'participants_database'))
-			$output .= "<input readonly id='table' name='table' value='".esc_attr( $table )."'>";
+			$output = "<input readonly id='table' name='table' value='".esc_attr( $table )."'>";
 		}
 		// $output .= "</select>";
 		print $output;
 	?>
+	</p>
+	<p>
+	
+	<select name="quantity" id="quantity">
+	<?php
+		$output = '<option></option>';
+		for ($x = 1; $x <= 7; $x++) {
+			$output .= '<option value="'.esc_attr( $x ).'">'.esc_attr($x).'</option>';
+		}
+		print $output;
+	?>
+	</select>
+
 	</p>
 	<label>Query</label>
 	<div class="form-field">
