@@ -134,7 +134,7 @@
     // $('#table').on('change', function() {
     $('#query').val(
       'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS CNT FROM ' +
-        $('#table').value +
+        $('#table').val() +
         ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1 '
     );
     run_sql_query();
