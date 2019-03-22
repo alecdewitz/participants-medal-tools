@@ -17,14 +17,14 @@ It also gives you the ability to export the results in a CSV format file.
 In order to access this plugin's admin page (Tools -> Run SQL Query), your account needs to have the `install_plugins` capability, that means a Super Admin in the multi-site installation or an Admin in a single site.
 
 Feel free to contribute:
-https://github.com/Sefirost/run-sql-query
+https://github.com/alecdewitz/run-sql-query
 
 Use on you own risk. Under no circumstances will the Author of this plugin assume responsibility or liability for any damages or destructive effects on the database resulting from the queries executed using this tool.
 
 == Installation ==
 
 1. Upload the plugin folder `run-sql-query` to the `/wp-content/plugins/` directory or by using the "Add Plugin" function of WordPress.
-2. Activate the plugin `Run Sql Query` through the 'Plugins' menu in WordPress
+2. Activate the plugin `Run SQL Query` through the 'Plugins' menu in WordPress
 3. The plugin page can be accessed via the 'Run SQL Query' link under 'Tools' menu in the administration area of a site (if your role is Admin for site administration role for single-site installs, or Super Admin for network installs).
 
 == Frequently Asked Questions ==

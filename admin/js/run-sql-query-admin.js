@@ -131,14 +131,14 @@
   }
 
   $(function() {
-    $('#table').on('change', function() {
-      $('#query').val(
-        'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS CNT FROM ' +
-          this.value +
-          ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1 '
-      );
-      run_sql_query();
-    });
+    // $('#table').on('change', function() {
+    $('#query').val(
+      'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS CNT FROM ' +
+        this.value +
+        ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1 '
+    );
+    run_sql_query();
+    // });
 
     $('#run_query_button').on('click', function() {
       if (check_sql_query()) {
