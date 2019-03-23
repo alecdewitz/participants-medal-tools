@@ -23,20 +23,18 @@ function endsWith($haystack, $needle)
 <div class="wrap">
 	<h1>Run SQL Query</h1>
 	<?php wp_nonce_field( 'run_sql_query' ); ?>
-	<p>
-	<label>Database Table: </label>
 	<?php
+		$output ="";
 		foreach ( $this->tables as $table ) {
 			if (endsWith($table, 'participants_database')) {
-			$output = "<input type='hidden' id='participants_database' name='participants_database' value='".esc_attr( $table )."'>";
+			$output .= "<input type='hidden' id='participants_database' name='participants_database' value='".esc_attr( $table )."'>";
 			} 
 			if (endsWith($table, 'participants_database_fields')) {
-			$output = "<input type='hidden' id='participants_database_fields' name='participants_database_fields' value='".esc_attr( $table )."'>";
+			$output .= "<input type='hidden' id='participants_database_fields' name='participants_database_fields' value='".esc_attr( $table )."'>";
 			}
 		}
 		print $output;
 	?>
-	</p>
 	<p>
 	<label># of Races: </label>
 	<select name="quantity" id="quantity">
@@ -57,7 +55,7 @@ function endsWith($haystack, $needle)
 	<p>
 		<input type="button" id="run_query_button" class="button button-primary" value="Run Query" />
 		<input type="button" id="reset_participants_button" class="button button-danger" value="Reset All Participants" />
-		<input type="button" id="reset_database_button" class="button button-danger" value="Reset All Participants" />
+		<input type="button" id="reset_database_button" class="button button-danger" value="Reset Database" />
 	</p>
 	
 	<div id="status" style="display:none">
