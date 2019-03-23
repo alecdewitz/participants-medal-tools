@@ -36,7 +36,7 @@ function endsWith($haystack, $needle)
 	?>
 	</p>
 	<p>
-	
+	<label>Quantity: </label>
 	<select name="quantity" id="quantity">
 	<?php
 		$output = '<option></option>';
