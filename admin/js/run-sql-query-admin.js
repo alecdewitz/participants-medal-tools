@@ -162,6 +162,22 @@
       }
     });
 
+    $('#reset_database_button').on('click', function() {
+      $('#query').val('DELETE FROM ' + $('#table').val());
+      var resetConfirm = confirm(
+        'Are you sure you want to run the following query\n\n' +
+          $('#query').val()
+      );
+      if (resetConfirm && check_sql_query()) {
+        run_sql_query();
+      }
+      $('#query').val(
+        'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS CNT FROM ' +
+          $('#table').val() +
+          ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1 '
+      );
+    });
+
     $('#export_button').on('click', function(event) {
       tableToCSV($('#results_detail table'));
     });

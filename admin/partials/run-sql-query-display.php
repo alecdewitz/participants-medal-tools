@@ -24,7 +24,7 @@ function endsWith($haystack, $needle)
 	<h1>Run SQL Query</h1>
 	<?php wp_nonce_field( 'run_sql_query' ); ?>
 	<p>
-	<label>Table: </label>
+	<label>Database Table: </label>
 	<?php
 		// $output = '<select name="table" id="table"><option></option>';
 		foreach ( $this->tables as $table ) {
@@ -36,7 +36,7 @@ function endsWith($haystack, $needle)
 	?>
 	</p>
 	<p>
-	<label>Quantity: </label>
+	<label># of Races: </label>
 	<select name="quantity" id="quantity">
 	<?php
 		$output = '<option></option>';
@@ -54,6 +54,7 @@ function endsWith($haystack, $needle)
 	</div>
 	<p>
 		<input type="button" id="run_query_button" class="button button-primary" value="Run Query" />
+		<input type="button" id="reset_database_button" class="button button-danger" value="Reset All Participants" />
 	</p>
 	
 	<div id="status" style="display:none">
