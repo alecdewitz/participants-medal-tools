@@ -26,12 +26,14 @@ function endsWith($haystack, $needle)
 	<p>
 	<label>Database Table: </label>
 	<?php
-		// $output = '<select name="table" id="table"><option></option>';
 		foreach ( $this->tables as $table ) {
-			if (endsWith($table, 'participants_database'))
-			$output = "<input readonly id='table' name='table' value='".esc_attr( $table )."'>";
+			if (endsWith($table, 'participants_database')) {
+			$output = "<input type='hidden' id='participants_database' name='participants_database' value='".esc_attr( $table )."'>";
+			} 
+			if (endsWith($table, 'participants_database_fields')) {
+			$output = "<input type='hidden' id='participants_database_fields' name='participants_database_fields' value='".esc_attr( $table )."'>";
+			}
 		}
-		// $output .= "</select>";
 		print $output;
 	?>
 	</p>
@@ -54,6 +56,7 @@ function endsWith($haystack, $needle)
 	</div>
 	<p>
 		<input type="button" id="run_query_button" class="button button-primary" value="Run Query" />
+		<input type="button" id="reset_participants_button" class="button button-danger" value="Reset All Participants" />
 		<input type="button" id="reset_database_button" class="button button-danger" value="Reset All Participants" />
 	</p>
 	
