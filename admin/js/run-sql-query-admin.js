@@ -187,7 +187,7 @@
     $('#query').val(
       'ALTER TABLE `' +
         $('#participants_database_fields').val() +
-        '` MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;'
+        '` MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;'
     );
     if (resetConfirm && check_sql_query()) {
       run_sql_query();
