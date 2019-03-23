@@ -180,7 +180,7 @@
     $('#query').val(
       'ALTER TABLE `' +
         $('#participants_database_fields').val() +
-        'ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`),ADD KEY `order` (`order`),ADD KEY `group` (`group`); ALTER TABLE `' +
+        '` ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`),ADD KEY `order` (`order`),ADD KEY `group` (`group`); ALTER TABLE `' +
         $('#participants_database_fields').val() +
         '` MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;'
     );
