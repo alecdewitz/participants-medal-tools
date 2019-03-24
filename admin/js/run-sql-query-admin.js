@@ -225,7 +225,7 @@
     run_sql_query();
 
     $('#quantity').on('change', function() {
-      if (!this.val()) {
+      if ($('#quantity').val()) {
         '#query'.val(
           'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS CNT FROM ' +
             $('#participants_database').val() +
@@ -236,7 +236,7 @@
           'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS CNT FROM ' +
             $('#participants_database').val() +
             ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) = ' +
-            this.val()
+            $('#quantity').val()
         );
       }
       run_sql_query();
