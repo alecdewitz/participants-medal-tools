@@ -32,6 +32,9 @@ function endsWith($haystack, $needle)
 			if (endsWith($table, 'participants_database_fields')) {
 			$output .= "<input type='hidden' id='participants_database_fields' name='participants_database_fields' value='".esc_attr( $table )."'>";
 			}
+			if (endsWith($table, 'options')) {
+			$output .= "<input type='hidden' id='options_db' name='options_db' value='".esc_attr( $table )."'>";
+			}
 		}
 		print $output;
 	?>
@@ -54,8 +57,8 @@ function endsWith($haystack, $needle)
 	</div>
 	<p>
 		<input type="button" id="run_query_button" class="button button-primary" value="Run Query" />
-		<input type="button" id="reset_participants_button" class="button button-danger" value="Reset All Participants" />
-		<input type="button" id="reset_database_button" class="button button-danger" value="Reset Database" />
+		<input type="button" id="reset_participants_button" class="button button-danger button-link-delete" value="Reset All Participants" />
+		<input type="button" id="reset_database_button" class="button button-danger button-link-delete" value="Reset Database" />
 	</p>
 	
 	<div id="status" style="display:none">
