@@ -182,12 +182,6 @@
         $('#participants_database_fields').val() +
         '` ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`),ADD KEY `order` (`order`),ADD KEY `group` (`group`);'
     );
-
-    // commit
-    $('#query').val('COMMIT');
-    if (resetConfirm && check_sql_query()) {
-      run_sql_query();
-    }
   }
 
   $(function() {
