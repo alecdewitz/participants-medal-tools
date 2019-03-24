@@ -57,7 +57,7 @@ function endsWith($haystack, $needle)
 	</div>
 	<p>
 		<input type="button" id="run_query_button" class="button button-primary" value="Run Query" />
-		<input type="button" id="reset_participants_button" class="button button-danger button-link-delete" value="Reset All Participants" />
+		<input type="button" id="reset_participants_button" class="button button-danger button-link-delete" value="Delete All Participants" />
 		<input type="button" id="reset_database_button" class="button button-danger button-link-delete" value="Reset Database" />
 	</p>
 	
