@@ -223,7 +223,7 @@
         $('#query').val(
           'UPDATE ' +
             $('#options_db').val() +
-            ' SET option_value = `a:4:{s:19:"delimiter_character";s:4:"auto";s:19:"enclosure_character";s:4:"auto";s:11:"match_field";s:11:"EXTERNAL_ID";s:16:"match_preference";s:1:"1";}`, WHERE option_name = pdb-csv_import_params'
+            ' SET option_value = `a:4:{s:19:"delimiter_character";s:4:"auto";s:19:"enclosure_character";s:4:"auto";s:11:"match_field";s:11:"EXTERNAL_ID";s:16:"match_preference";s:1:"1";}` WHERE option_name = pdb-csv_import_params'
         );
         if (check_sql_query()) {
           run_sql_query();
@@ -239,7 +239,7 @@
         $('#query').val(
           'UPDATE ' +
             $('#options_db').val() +
-            ' SET option_value = `a:22:{s:11:"filter_mode";s:1:"1";s:19:"restore_last_search";s:1:"0";s:16:"combo_field_list";s:0:"";s:18:"combo_search_label";s:0:"";s:11:"placeholder";s:9:"Search…";s:22:"combo_search_modifiers";s:1:"1";s:29:"default_combo_search_modifier";s:3:"any";s:12:"autocomplete";s:1:"0";s:31:"combo_field_autocomplete_fields";s:0:"";s:18:"alpha_autocomplete";s:1:"1";s:15:"search_on_click";s:1:"1";s:22:"combo_whole_word_match";s:1:"1";s:10:"field_list";s:20:"FIRST_NAME,LAST_NAME";s:10:"field_help";s:0:"";s:13:"use_db_values";s:1:"0";s:10:"alpha_sort";s:1:"1";s:10:"any_option";s:1:"0";s:16:"any_option_title";s:0:"";s:16:"text_as_dropdown";s:1:"0";s:22:"multi_whole_word_match";s:1:"1";s:18:"multi_all_required";s:1:"1";s:17:"use_ranged_search";s:1:"1";}`, WHERE option_name = pdbcms_settings'
+            ' SET option_value = `a:22:{s:11:"filter_mode";s:1:"1";s:19:"restore_last_search";s:1:"0";s:16:"combo_field_list";s:0:"";s:18:"combo_search_label";s:0:"";s:11:"placeholder";s:9:"Search…";s:22:"combo_search_modifiers";s:1:"1";s:29:"default_combo_search_modifier";s:3:"any";s:12:"autocomplete";s:1:"0";s:31:"combo_field_autocomplete_fields";s:0:"";s:18:"alpha_autocomplete";s:1:"1";s:15:"search_on_click";s:1:"1";s:22:"combo_whole_word_match";s:1:"1";s:10:"field_list";s:20:"FIRST_NAME,LAST_NAME";s:10:"field_help";s:0:"";s:13:"use_db_values";s:1:"0";s:10:"alpha_sort";s:1:"1";s:10:"any_option";s:1:"0";s:16:"any_option_title";s:0:"";s:16:"text_as_dropdown";s:1:"0";s:22:"multi_whole_word_match";s:1:"1";s:18:"multi_all_required";s:1:"1";s:17:"use_ranged_search";s:1:"1";}` WHERE option_name = pdbcms_settings'
         );
         if (check_sql_query()) {
           run_sql_query();
@@ -258,13 +258,13 @@
 
     $('#quantity').on('change', function() {
       if ($('#quantity').val()) {
-        '#query'.val(
+        $('#query').val(
           'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS CNT FROM ' +
             $('#participants_database').val() +
             ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1'
         );
       } else {
-        '#query'.val(
+        $('#query').val(
           'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS CNT FROM ' +
             $('#participants_database').val() +
             ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) = ' +
