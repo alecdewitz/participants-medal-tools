@@ -64,7 +64,7 @@ function endsWith($haystack, $needle)
 	<div id="status" style="display:none">
 		<h3>Status</h3>
 		<span id="status_detail"></span>
-		<img id="loading_gif" src="/wp-admin/images/loading.gif">
+		<img id="loading_gif" src="./images/loading.gif">
 	</div>
 
 	<div id="error" style="display:none">
