@@ -168,6 +168,32 @@
         }
       }
 
+      resetConfirm = confirm('Are you sure you want to reset the database?');
+
+      if (resetConfirm && $('#participants_database').val()) {
+        // create table
+        $('#query').val(
+          'DROP TABLE IF EXISTS ' + $('#participants_database').val() + ';'
+        );
+        if (check_sql_query()) {
+          run_sql_query();
+        }
+      }
+
+      resetConfirm = confirm('Are you sure you want to create the database?');
+
+      if (resetConfirm && $('#participants_database').val()) {
+        // create table
+        $('#query').val(
+          'CREATE TABLE ' +
+            $('#participants_database').val() +
+            ' (id int(6) NOT NULL AUTO_INCREMENT,private_id varchar(9) COLLATE utf8_unicode_ci DEFAULT NULL,FIRST_NAME tinytext COLLATE utf8_unicode_ci,LAST_NAME tinytext COLLATE utf8_unicode_ci,CITY tinytext COLLATE utf8_unicode_ci,REGION_NAME tinytext COLLATE utf8_unicode_ci,COUNTRY_NAME tinytext COLLATE utf8_unicode_ci,EMAIL tinytext COLLATE utf8_unicode_ci,date_recorded timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,date_updated timestamp NULL DEFAULT NULL,last_accessed timestamp NULL DEFAULT NULL,RACE tinytext COLLATE utf8_unicode_ci,REG_CHOICE tinytext COLLATE utf8_unicode_ci,GENDER tinytext COLLATE utf8_unicode_ci,DOB tinytext COLLATE utf8_unicode_ci,RACE_NAME tinytext COLLATE utf8_unicode_ci,EXTERNAL_ID tinytext COLLATE utf8_unicode_ci,          CHRONO_ID tinytext COLLATE utf8_unicode_ci, PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;'
+        );
+        if (check_sql_query()) {
+          run_sql_query();
+        }
+      }
+
       // insert into table
       // $('#query').val(
       //   'INSERT INTO `' +
