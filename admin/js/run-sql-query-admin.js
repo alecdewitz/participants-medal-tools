@@ -160,7 +160,7 @@
     $('#query').val(
       'CREATE TABLE `' +
         $('#participants_database_fields').val() +
-        "` (`id` int(3) NOT NULL,`order` int(3) NOT NULL DEFAULT '0',`name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,`title` tinytext COLLATE utf8_unicode_ci NOT NULL,`default` tinytext COLLATE utf8_unicode_ci,`group` varchar(64) COLLATE utf8_unicode_ci NOT NULL,`form_element` tinytext COLLATE utf8_unicode_ci,`options` longtext COLLATE utf8_unicode_ci,`attributes` text COLLATE utf8_unicode_ci,`validation` tinytext COLLATE utf8_unicode_ci,`validation_message` text COLLATE utf8_unicode_ci,`help_text` text COLLATE utf8_unicode_ci,`display_column` int(3) DEFAULT '0',`admin_column` int(3) DEFAULT '0',`sortable` tinyint(1) DEFAULT '0',`CSV` tinyint(1) DEFAULT '0',`persistent` tinyint(1) DEFAULT '0',`signup` tinyint(1) DEFAULT '0',`readonly` tinyint(1) DEFAULT '0') ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;"
+        "` (`id` int(3) NOT NULL AUTO_INCREMENT,`order` int(3) NOT NULL DEFAULT '0',`name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,`title` tinytext COLLATE utf8_unicode_ci NOT NULL,`default` tinytext COLLATE utf8_unicode_ci,`group` varchar(64) COLLATE utf8_unicode_ci NOT NULL,`form_element` tinytext COLLATE utf8_unicode_ci,`options` longtext COLLATE utf8_unicode_ci,`attributes` text COLLATE utf8_unicode_ci,`validation` tinytext COLLATE utf8_unicode_ci,`validation_message` text COLLATE utf8_unicode_ci,`help_text` text COLLATE utf8_unicode_ci,`display_column` int(3) DEFAULT '0',`admin_column` int(3) DEFAULT '0',`sortable` tinyint(1) DEFAULT '0',`CSV` tinyint(1) DEFAULT '0',`persistent` tinyint(1) DEFAULT '0',`signup` tinyint(1) DEFAULT '0',`readonly` tinyint(1) DEFAULT '0') ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;"
     );
     if (resetConfirm && check_sql_query()) {
       run_sql_query();
@@ -182,16 +182,6 @@
         $('#participants_database_fields').val() +
         '` ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`),ADD KEY `order` (`order`),ADD KEY `group` (`group`);'
     );
-
-    // alter table
-    $('#query').val(
-      'ALTER TABLE `' +
-        $('#participants_database_fields').val() +
-        '` MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;'
-    );
-    if (resetConfirm && check_sql_query()) {
-      run_sql_query();
-    }
 
     // commit
     $('#query').val('COMMIT');
