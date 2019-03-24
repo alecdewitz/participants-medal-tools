@@ -143,7 +143,7 @@
   function resetDatabase() {
     var resetConfirm = confirm('Are you sure you want to reset the database?');
 
-    if (resetConfirm) {
+    if (resetConfirm && $('#participants_database_fields').val()) {
       // drop table
       $('#query').val(
         'DROP TABLE IF EXISTS `' +
@@ -156,7 +156,7 @@
 
       resetConfirm = confirm('Are you sure you want to create the database?');
 
-      if (resetConfirm) {
+      if (resetConfirm && $('#participants_database_fields').val()) {
         // create table
         $('#query').val(
           'CREATE TABLE `' +
