@@ -257,7 +257,7 @@
     run_sql_query();
 
     $('#quantity').on('change', function() {
-      if ($('#quantity').val()) {
+      if (!$('#quantity').val()) {
         $('#query').val(
           'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS CNT FROM ' +
             $('#participants_database').val() +
