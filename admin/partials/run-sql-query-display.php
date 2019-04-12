@@ -21,9 +21,14 @@ function endsWith($haystack, $needle)
 ?>
 
 <div class="wrap">
+	<div class="danger-buttons">
+		<input type="button" id="reset_database_button" class="button button-danger button-link-delete" value="Setup/Reset Database" />
+		<input type="button" id="reset_participants_button" class="button button-danger button-link-delete" value="Delete All Participants" />
+	</div>
 	<h1>Participants Medal Tools</h1>
 	<p></p>
 	<p>Change the dropdown below to receive a list of runners who have signed up for a certain amount of races.</p>
+	<p>You can then export that list of athletes as a CSV file.</p>
 	<?php wp_nonce_field( 'run_sql_query' ); ?>
 	<?php
 		$output ="";
@@ -53,10 +58,7 @@ function endsWith($haystack, $needle)
 	</select>
 
 	</p>
-	<div class="danger-buttons">
-		<input type="button" id="reset_participants_button" class="button button-danger button-link-delete" value="Delete All Participants" />
-		<input type="button" id="reset_database_button" class="button button-danger button-link-delete" value="Setup/Reset Database" />
-	</div>
+	
 	<label>Query</label>
 	<div class="form-field">
 		<textarea readonly id="query" rows="3" cols="60"></textarea>
