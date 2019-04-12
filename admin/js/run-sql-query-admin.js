@@ -262,7 +262,7 @@
       run_sql_query();
 
       $('#quantity').on('change', function () {
-        if (!$('#quantity').val()) {
+        if (!$('#quantity').val() || $('#quantity').val().indexOf('Greater') > -1) {
           $('#query').val(
             'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS RACE_COUNT FROM ' +
             $('#participants_database').val() +
