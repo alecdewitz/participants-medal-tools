@@ -248,6 +248,11 @@
   }
 
   $(function () {
+    console.log($('#participants_database_fields').val(),
+      $('#participants_database').val(),
+      $('#options_db').val()
+    )
+
     if (
       $('#participants_database_fields').val() &&
       $('#participants_database').val() &&
