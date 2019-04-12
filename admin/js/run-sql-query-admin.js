@@ -230,6 +230,14 @@
         console.log(query);
         $('#query').val(query);
         await run_sql_query();
+
+        $('#query').val(
+          'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS RACE_COUNT FROM ' +
+          $('#participants_database').val() +
+          ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1 '
+        );
+        await run_sql_query();
+
       } else {
         alert(
           'You may need to refresh or reinstall the Participants Database Plugin'
@@ -307,7 +315,7 @@
       });
     } else {
       $('.wrap').html(
-        'Please install the plugins: Participants Database & Participants Database Combo Multisearch'
+        'Please re-install the plugin: Participants Database'
       );
     }
   });
