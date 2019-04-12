@@ -135,7 +135,6 @@
 
   async function clearParticipants() {
     var query = 'DELETE FROM ' + $('#participants_database').val();
-    alert(query);
 
     $('#query').val(query);
     var resetConfirm = confirm(
@@ -152,7 +151,7 @@
       'Are you sure you want to reset the participants database and go back to standard settings?'
     );
     var resetConfirm2 = confirm(
-      'You will not be able to UNDO these changes. Are you sure? It will take about 20 seconds to complete.'
+      'You will not be able to UNDO these changes. Are you sure? It will take a few seconds to complete.'
     );
 
     if (resetConfirm && resetConfirm2) {
@@ -293,9 +292,11 @@
           $('#participants_database').val() +
           ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1 ';
 
-        alert(query);
-
         $('#query').val(query);
+        if (check_sql_query()) {
+          run_sql_query();
+        }
+
       });
 
       $('#reset_database_button').on('click', function () {
