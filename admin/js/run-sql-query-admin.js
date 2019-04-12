@@ -248,7 +248,7 @@
     }
   }
 
-  $(async function () {
+  $(function () {
     if (
       $('#participants_database_fields').val() &&
       $('#participants_database').val() &&
@@ -259,9 +259,9 @@
         $('#participants_database').val() +
         ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1 '
       );
-      await run_sql_query();
+      run_sql_query();
 
-      $('#quantity').on('change', async function () {
+      $('#quantity').on('change', function () {
         if (!$('#quantity').val()) {
           $('#query').val(
             'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS RACE_COUNT FROM ' +
@@ -276,12 +276,12 @@
             $('#quantity').val()
           );
         }
-        await run_sql_query();
+        run_sql_query();
       });
 
-      $('#run_query_button').on('click', async function () {
+      $('#run_query_button').on('click', function () {
         if (check_sql_query()) {
-          await run_sql_query();
+          run_sql_query();
         }
       });
 
