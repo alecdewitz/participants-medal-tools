@@ -82,54 +82,54 @@
   }
 
   function run_sql_query() {
-    $('#error').hide();
-    $('#results').hide();
-    $('#export_button').hide();
-    $('#status').show();
-    $('#loading_gif').show();
-    $('#status_detail').html('Running...');
+    return new Promise(resolve => {
+      $('#error').hide();
+      $('#results').hide();
+      $('#export_button').hide();
+      $('#status').show();
+      $('#loading_gif').show();
+      $('#status_detail').html('Running...');
 
-    var query = $('#query')
-      .val()
-      .replace(/(\r\n|\n|\r)/gm, ' ');
+      var query = $('#query')
+        .val()
+        .replace(/(\r\n|\n|\r)/gm, ' ');
 
-    var data = {
-      action: 'run_sql_query',
-      security: $('#_wpnonce').val(),
-      query: query
-    };
+      var data = {
+        action: 'run_sql_query',
+        security: $('#_wpnonce').val(),
+        query: query
+      };
 
-    $.post(ajaxurl, data, function(response) {
-      if (response.success) {
-        $('#raw_query').html(query);
-        if (typeof response.data.affected_rows !== 'undefined') {
-          $('#results_detail').html(
-            response.data.affected_rows + ' row(s) affected'
-          );
-          $('#results').show();
-          return new Promise(resolve => {
+      $.post(ajaxurl, data, function(response) {
+        if (response.success) {
+          $('#raw_query').html(query);
+          if (typeof response.data.affected_rows !== 'undefined') {
+            $('#results_detail').html(
+              response.data.affected_rows + ' row(s) affected'
+            );
+            $('#results').show();
             resolve(true);
-          });
-        } else {
-          if (response.data.rows == 0) {
-            $('#results_detail').html('No results');
           } else {
-            $('#results_detail').html('');
-            $.jsontotable(response.data.rows, {
-              id: '#results_detail',
-              header: true
-            });
-            $('#export_button').show();
+            if (response.data.rows == 0) {
+              $('#results_detail').html('No results');
+            } else {
+              $('#results_detail').html('');
+              $.jsontotable(response.data.rows, {
+                id: '#results_detail',
+                header: true
+              });
+              $('#export_button').show();
+            }
+            $('#results').show();
           }
-          $('#results').show();
+        } else {
+          $('#error').show();
+          $('#error_detail').html(response.data.error);
         }
-      } else {
-        $('#error').show();
-        $('#error_detail').html(response.data.error);
-      }
-    }).always(function() {
-      $('#loading_gif').hide();
-      $('#status_detail').html('Completed');
+      }).always(function() {
+        $('#loading_gif').hide();
+        $('#status_detail').html('Completed');
+      });
     });
   }
 
