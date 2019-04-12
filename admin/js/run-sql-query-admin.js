@@ -238,64 +238,74 @@
   }
 
   $(function() {
-    $('#query').val(
-      'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS CNT FROM ' +
-        $('#participants_database').val() +
-        ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1 '
-    );
-    run_sql_query();
-
-    $('#quantity').on('change', function() {
-      if (!$('#quantity').val()) {
-        $('#query').val(
-          'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS CNT FROM ' +
-            $('#participants_database').val() +
-            ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1'
-        );
-      } else {
-        $('#query').val(
-          'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS CNT FROM ' +
-            $('#participants_database').val() +
-            ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) = ' +
-            $('#quantity').val()
-        );
-      }
-      run_sql_query();
-    });
-
-    $('#run_query_button').on('click', function() {
-      if (check_sql_query()) {
-        run_sql_query();
-      }
-    });
-
-    $('#reset_participants_button').on('click', function() {
-      clearParticipants();
-
-      var query =
-        'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS CNT FROM ' +
-        $('#participants_database').val() +
-        ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1 ';
-
-      alert(query);
-
-      $('#query').val(query);
-    });
-
-    $('#reset_database_button').on('click', function() {
-      clearParticipants();
-
-      resetDatabase();
-
+    if (
+      $('#participants_database_fields').val() &&
+      $('#participants_database').val() &&
+      $('#options_db').val()
+    ) {
       $('#query').val(
-        'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS CNT FROM ' +
+        'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS RACE_COUNT FROM ' +
           $('#participants_database').val() +
           ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1 '
       );
-    });
+      run_sql_query();
 
-    $('#export_button').on('click', function(event) {
-      tableToCSV($('#results_detail table'));
-    });
+      $('#quantity').on('change', function() {
+        if (!$('#quantity').val()) {
+          $('#query').val(
+            'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS RACE_COUNT FROM ' +
+              $('#participants_database').val() +
+              ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1'
+          );
+        } else {
+          $('#query').val(
+            'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS RACE_COUNT FROM ' +
+              $('#participants_database').val() +
+              ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) = ' +
+              $('#quantity').val()
+          );
+        }
+        run_sql_query();
+      });
+
+      $('#run_query_button').on('click', function() {
+        if (check_sql_query()) {
+          run_sql_query();
+        }
+      });
+
+      $('#reset_participants_button').on('click', function() {
+        clearParticipants();
+
+        var query =
+          'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS RACE_COUNT FROM ' +
+          $('#participants_database').val() +
+          ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1 ';
+
+        alert(query);
+
+        $('#query').val(query);
+      });
+
+      $('#reset_database_button').on('click', function() {
+        clearParticipants();
+
+        resetDatabase();
+
+        $('#query').val(
+          'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS RACE_COUNT FROM ' +
+            $('#participants_database').val() +
+            ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1 '
+        );
+      });
+
+      $('#export_button').on('click', function(event) {
+        tableToCSV($('#results_detail table'));
+      });
+    } else {
+      $('.wrap').html(
+        'Please install the plugins: Participants Database & Participants Database Combo Multisearch'
+      );
+    }
   });
 })(jQuery);

@@ -22,6 +22,8 @@ function endsWith($haystack, $needle)
 
 <div class="wrap">
 	<h1>Participants Medal Tools</h1>
+	<p></p>
+	<p>Change the dropdown below to receive a list of runners who have signed up for a certain amount of races.</p>
 	<?php wp_nonce_field( 'run_sql_query' ); ?>
 	<?php
 		$output ="";
@@ -39,10 +41,10 @@ function endsWith($haystack, $needle)
 		print $output;
 	?>
 	<p>
-	<label># of Races: </label>
+	<label>Race Count: </label>
 	<select name="quantity" id="quantity">
 	<?php
-		$output = '<option></option>';
+		$output = '<option>More than 1</option>';
 		for ($x = 1; $x <= 7; $x++) {
 			$output .= '<option value="'.esc_attr( $x ).'">'.esc_attr($x).'</option>';
 		}
