@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Plugin Name:       Run SQL Query
- * Plugin URI:        https://github.com/alecdewitz/run-sql-query
+ * Plugin Name:       Participants Medal Setup
+ * Plugin URI:        https://github.com/alecdewitz/participants-medal-tools
  * Description:       Run SQL queries on your WordPress database, to operate use the plugin page under Tools &gt; <a href="tools.php?page=run-sql-query">Run SQL Query</a> to operate.
- * Version:           1.0.37
+ * Version:           1.0.38
  * Author:            Alec Dewitz
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       run-sql-query
+ * Text Domain:       participants-medal-tools
  */
 
 // If this file is called directly, abort.
@@ -18,9 +18,9 @@ if ( ! defined( 'WPINC' ) ) {
 
 require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'https://github.com/alecdewitz/run-sql-query/',
+	'https://github.com/alecdewitz/participants-medal-tools/',
 	__FILE__,
-	'run-sql-query'
+	'participants-medal-tools'
 );
 
 $myUpdateChecker->setAuthentication('3be42bd898d3cb1418f2614eb953be3a0114321e');
