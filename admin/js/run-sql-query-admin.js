@@ -148,37 +148,37 @@
     var resetConfirm = confirm(
       'Are you sure you want to reset the participants database and go back to standard settings?'
     );
+    var resetConfirm2 = confirm(
+      'You will not be able to UNDO these changes. Are you sure?'
+    );
 
-    if (resetConfirm) {
+    if (resetConfirm && resetConfirm2) {
       if (
         $('#participants_database_fields').val() &&
         $('#participants_database').val() &&
         $('#options_db').val()
       ) {
+        console.log(query);
         var query =
           'DROP TABLE IF EXISTS `' +
           $('#participants_database_fields').val() +
           '`';
 
-        console.log(query);
         // drop table
         $('#query').val(query);
-        if (check_sql_query()) {
-          run_sql_query();
-        }
+        run_sql_query();
 
+        console.log(query);
         query =
           'CREATE TABLE `' +
           $('#participants_database_fields').val() +
           "` (`id` int(3) NOT NULL AUTO_INCREMENT,`order` int(3) NOT NULL DEFAULT '0',`name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,`title` tinytext COLLATE utf8_unicode_ci NOT NULL,`default` tinytext COLLATE utf8_unicode_ci,`group` varchar(64) COLLATE utf8_unicode_ci NOT NULL,`form_element` tinytext COLLATE utf8_unicode_ci,`options` longtext COLLATE utf8_unicode_ci,`attributes` text COLLATE utf8_unicode_ci,`validation` tinytext COLLATE utf8_unicode_ci,`validation_message` text COLLATE utf8_unicode_ci,`help_text` text COLLATE utf8_unicode_ci,`display_column` int(3) DEFAULT '0',`admin_column` int(3) DEFAULT '0',`sortable` tinyint(1) DEFAULT '0',`CSV` tinyint(1) DEFAULT '0',`persistent` tinyint(1) DEFAULT '0',`signup` tinyint(1) DEFAULT '0',`readonly` tinyint(1) DEFAULT '0', PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 
-        console.log(query);
         // create table
         $('#query').val(query);
-        if (check_sql_query()) {
-          run_sql_query();
-        }
+        run_sql_query();
 
+        // insert into table
         query =
           'INSERT INTO `' +
           $('#participants_database_fields').val() +
@@ -186,13 +186,11 @@
 
         console.log(query);
 
-        // insert into table
         $('#query').val(query);
 
-        if (check_sql_query()) {
-          run_sql_query();
-        }
+        run_sql_query();
 
+        // alter table
         query =
           'ALTER TABLE `' +
           $('#participants_database_fields').val() +
@@ -200,50 +198,47 @@
 
         console.log(query);
 
-        // alter table
         $('#query').val(query);
 
-        if (check_sql_query()) {
-          run_sql_query();
-        }
+        run_sql_query();
 
         // create table
-        $('#query').val(
-          'DROP TABLE IF EXISTS ' + $('#participants_database').val() + ';'
-        );
-        if (check_sql_query()) {
-          run_sql_query();
-        }
+        query =
+          'DROP TABLE IF EXISTS ' + $('#participants_database').val() + ';';
+        console.log(query);
 
+        $('#query').val(query);
+        run_sql_query();
         // create table
-        $('#query').val(
+        query =
           'CREATE TABLE ' +
-            $('#participants_database').val() +
-            ' (id int(6) NOT NULL AUTO_INCREMENT,private_id varchar(9) COLLATE utf8_unicode_ci DEFAULT NULL,FIRST_NAME tinytext COLLATE utf8_unicode_ci,LAST_NAME tinytext COLLATE utf8_unicode_ci,CITY tinytext COLLATE utf8_unicode_ci,REGION_NAME tinytext COLLATE utf8_unicode_ci,COUNTRY_NAME tinytext COLLATE utf8_unicode_ci,EMAIL tinytext COLLATE utf8_unicode_ci,date_recorded timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,date_updated timestamp NULL DEFAULT NULL,last_accessed timestamp NULL DEFAULT NULL,RACE tinytext COLLATE utf8_unicode_ci,REG_CHOICE tinytext COLLATE utf8_unicode_ci,GENDER tinytext COLLATE utf8_unicode_ci,DOB tinytext COLLATE utf8_unicode_ci,EXTERNAL_ID tinytext COLLATE utf8_unicode_ci,          CHRONO_ID tinytext COLLATE utf8_unicode_ci, PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;'
-        );
-        if (check_sql_query()) {
-          run_sql_query();
-        }
+          $('#participants_database').val() +
+          ' (id int(6) NOT NULL AUTO_INCREMENT,private_id varchar(9) COLLATE utf8_unicode_ci DEFAULT NULL,FIRST_NAME tinytext COLLATE utf8_unicode_ci,LAST_NAME tinytext COLLATE utf8_unicode_ci,CITY tinytext COLLATE utf8_unicode_ci,REGION_NAME tinytext COLLATE utf8_unicode_ci,COUNTRY_NAME tinytext COLLATE utf8_unicode_ci,EMAIL tinytext COLLATE utf8_unicode_ci,date_recorded timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,date_updated timestamp NULL DEFAULT NULL,last_accessed timestamp NULL DEFAULT NULL,RACE tinytext COLLATE utf8_unicode_ci,REG_CHOICE tinytext COLLATE utf8_unicode_ci,GENDER tinytext COLLATE utf8_unicode_ci,DOB tinytext COLLATE utf8_unicode_ci,EXTERNAL_ID tinytext COLLATE utf8_unicode_ci,          CHRONO_ID tinytext COLLATE utf8_unicode_ci, PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;';
+        console.log(query);
+
+        $('#query').val(query);
+        run_sql_query();
 
         // update options
-        $('#query').val(
+        query =
           'UPDATE ' +
-            $('#options_db').val() +
-            ' SET option_value=\'a:4:{s:19:"delimiter_character";s:4:"auto";s:19:"enclosure_character";s:4:"auto";s:11:"match_field";s:11:"EXTERNAL_ID";s:16:"match_preference";s:1:"1";}\' WHERE option_name="pdb-csv_import_params"'
-        );
-        if (check_sql_query()) {
-          run_sql_query();
-        }
+          $('#options_db').val() +
+          ' SET option_value=\'a:4:{s:19:"delimiter_character";s:4:"auto";s:19:"enclosure_character";s:4:"auto";s:11:"match_field";s:11:"EXTERNAL_ID";s:16:"match_preference";s:1:"1";}\' WHERE option_name="pdb-csv_import_params"';
 
-        // update options
-        $('#query').val(
+        console.log(query);
+
+        $('#query').val(query);
+        run_sql_query();
+
+        query =
           'UPDATE ' +
-            $('#options_db').val() +
-            ' SET option_value=\'a:22:{s:11:"filter_mode";s:1:"1";s:19:"restore_last_search";s:1:"0";s:16:"combo_field_list";s:0:"";s:18:"combo_search_label";s:0:"";s:11:"placeholder";s:9:"Search…";s:22:"combo_search_modifiers";s:1:"1";s:29:"default_combo_search_modifier";s:3:"any";s:12:"autocomplete";s:1:"0";s:31:"combo_field_autocomplete_fields";s:0:"";s:18:"alpha_autocomplete";s:1:"1";s:15:"search_on_click";s:1:"1";s:22:"combo_whole_word_match";s:1:"1";s:10:"field_list";s:20:"FIRST_NAME,LAST_NAME";s:10:"field_help";s:0:"";s:13:"use_db_values";s:1:"0";s:10:"alpha_sort";s:1:"1";s:10:"any_option";s:1:"0";s:16:"any_option_title";s:0:"";s:16:"text_as_dropdown";s:1:"0";s:22:"multi_whole_word_match";s:1:"1";s:18:"multi_all_required";s:1:"1";s:17:"use_ranged_search";s:1:"1";}\' WHERE option_name ="pdbcms_settings"'
-        );
-        if (check_sql_query()) {
-          run_sql_query();
-        }
+          $('#options_db').val() +
+          ' SET option_value=\'a:22:{s:11:"filter_mode";s:1:"1";s:19:"restore_last_search";s:1:"0";s:16:"combo_field_list";s:0:"";s:18:"combo_search_label";s:0:"";s:11:"placeholder";s:9:"Search…";s:22:"combo_search_modifiers";s:1:"1";s:29:"default_combo_search_modifier";s:3:"any";s:12:"autocomplete";s:1:"0";s:31:"combo_field_autocomplete_fields";s:0:"";s:18:"alpha_autocomplete";s:1:"1";s:15:"search_on_click";s:1:"1";s:22:"combo_whole_word_match";s:1:"1";s:10:"field_list";s:20:"FIRST_NAME,LAST_NAME";s:10:"field_help";s:0:"";s:13:"use_db_values";s:1:"0";s:10:"alpha_sort";s:1:"1";s:10:"any_option";s:1:"0";s:16:"any_option_title";s:0:"";s:16:"text_as_dropdown";s:1:"0";s:22:"multi_whole_word_match";s:1:"1";s:18:"multi_all_required";s:1:"1";s:17:"use_ranged_search";s:1:"1";}\' WHERE option_name ="pdbcms_settings"';
+        console.log(query);
+        // update options
+        $('#query').val(query);
+
+        run_sql_query();
       } else {
         alert(
           'You may need to refresh or reinstall the Participants Database Plugin'
