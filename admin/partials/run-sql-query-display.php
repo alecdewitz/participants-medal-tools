@@ -31,15 +31,16 @@ function endsWith($haystack, $needle)
 	<p>You can then export that list of athletes as a CSV file.</p>
 	<?php wp_nonce_field( 'run_sql_query' ); ?>
 	<?php
+		$blog_prefix = $wpdb->get_blog_prefix(BLOG_ID_CURRENT_SITE);
 		$output ="";
 		foreach ( $this->tables as $table ) {
-			if (endsWith($table, 'participants_database')) {
+			if (endsWith($table, $blog_prefix.'participants_database')) {
 			$output .= "<input type='hidden' id='participants_database' name='participants_database' value='".esc_attr( $table )."'>";
 			} 
-			if (endsWith($table, 'participants_database_fields')) {
+			if (endsWith($table, $blog_prefix.'participants_database_fields')) {
 			$output .= "<input type='hidden' id='participants_database_fields' name='participants_database_fields' value='".esc_attr( $table )."'>";
 			}
-			if (endsWith($table, 'options')) {
+			if (endsWith($table, $blog_prefix.'options')) {
 			$output .= "<input type='hidden' id='options_db' name='options_db' value='".esc_attr( $table )."'>";
 			}
 		}
