@@ -84,12 +84,12 @@ class Run_SQL_Query_Admin {
 	 */
 	public function add_admin_menus() {
 		
-		add_management_page( 'Run SQL Query', 'Run SQL Query', 'install_plugins', 'run-sql-query', array( $this, 'admin_page' ) );			
+		add_management_page( 'Participants Medal Tools', 'Participants Medal Tools', 'install_plugins', 'run-sql-query', array( $this, 'admin_page' ) );			
 	
 	}
 
 	/**
-	 * Load the tables from database and show Run SQL Query's admin page.
+	 * Load the tables from database and show Participants Medal Tools's admin page.
 	 *
 	 * @since    1.0.0
 	 */

@@ -21,7 +21,7 @@ function endsWith($haystack, $needle)
 ?>
 
 <div class="wrap">
-	<h1>Run SQL Query</h1>
+	<h1>Participants Medal Tools</h1>
 	<?php wp_nonce_field( 'run_sql_query' ); ?>
 	<?php
 		$output ="";

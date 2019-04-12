@@ -131,11 +131,14 @@
   }
 
   function clearParticipants() {
-    $('#query').val('');
-    $('#query').appendChild('DELETE FROM ' + $('#participants_database').val());
+    var query = 'DELETE FROM ' + $('#participants_database').val();
+    alert(query);
+
+    $('#query').val(query);
     var resetConfirm = confirm(
       'Are you sure you want to delete all participants from the database?'
     );
+
     if (resetConfirm && check_sql_query()) {
       run_sql_query();
     }
@@ -269,11 +272,14 @@
     $('#reset_participants_button').on('click', function() {
       clearParticipants();
 
-      $('#query').appendChild(
+      var query =
         'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS CNT FROM ' +
-          $('#participants_database').val() +
-          ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1 '
-      );
+        $('#participants_database').val() +
+        ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1 ';
+
+      alert(query);
+
+      $('#query').val(query);
     });
 
     $('#reset_database_button').on('click', function() {
