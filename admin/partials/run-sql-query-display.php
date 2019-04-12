@@ -9,6 +9,8 @@
  * @subpackage Run_SQL_Query/admin/partials
  */
 
+global $wpdb;
+
 function endsWith($haystack, $needle)
 {
     $length = strlen($needle);
