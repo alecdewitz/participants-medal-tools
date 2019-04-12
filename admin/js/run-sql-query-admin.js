@@ -248,7 +248,7 @@
     }
   }
 
-  $(function () {
+  $(async function () {
     if (
       $('#participants_database_fields').val() &&
       $('#participants_database').val() &&
