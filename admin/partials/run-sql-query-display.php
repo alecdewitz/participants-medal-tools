@@ -44,7 +44,7 @@ function endsWith($haystack, $needle)
 	<label>Race Count: </label>
 	<select name="quantity" id="quantity">
 	<?php
-		$output = '<option>More than 1</option>';
+		$output = '<option>Greater Than 1</option>';
 		for ($x = 1; $x <= 7; $x++) {
 			$output .= '<option value="'.esc_attr( $x ).'">'.esc_attr($x).'</option>';
 		}
@@ -53,15 +53,17 @@ function endsWith($haystack, $needle)
 	</select>
 
 	</p>
+	<div class="danger-buttons">
+		<input type="button" id="reset_participants_button" class="button button-danger button-link-delete" value="Delete All Participants" />
+		<input type="button" id="reset_database_button" class="button button-danger button-link-delete" value="Setup/Reset Database" />
+	</div>
 	<label>Query</label>
 	<div class="form-field">
 		<textarea readonly id="query" rows="3" cols="60"></textarea>
 	</div>
-	<p>
+	<div>
 		<input type="button" id="run_query_button" class="button button-primary" value="Run Query" />
-		<input type="button" id="reset_participants_button" class="button button-danger button-link-delete" value="Delete All Participants" />
-		<input type="button" id="reset_database_button" class="button button-danger button-link-delete" value="Reset Database" />
-	</p>
+	</div>
 	
 	<div id="status" style="display:none">
 		<h3>Status</h3>
