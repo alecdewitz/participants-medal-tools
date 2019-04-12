@@ -3,7 +3,7 @@
 /**
  * Plugin Name:       Participants Medal Setup
  * Plugin URI:        https://github.com/alecdewitz/participants-medal-tools
- * Description:       Run SQL queries on your WordPress database, to operate use the plugin page under Tools &gt; <a href="tools.php?page=run-sql-query">Run SQL Query</a> to operate.
+ * Description:       Setup Lifetime, to operate use the plugin page under Tools &gt; <a href="tools.php?page=run-sql-query">participants-medal-tools</a>.
  * Version:           1.0.38
  * Author:            Alec Dewitz
  * License:           GPL-2.0+

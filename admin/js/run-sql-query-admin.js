@@ -131,7 +131,8 @@
   }
 
   function clearParticipants() {
-    $('#query').val('DELETE FROM ' + $('#participants_database').val());
+    $('#query').val('');
+    $('#query').appendChild('DELETE FROM ' + $('#participants_database').val());
     var resetConfirm = confirm(
       'Are you sure you want to delete all participants from the database?'
     );
@@ -267,7 +268,8 @@
 
     $('#reset_participants_button').on('click', function() {
       clearParticipants();
-      $('#query').val(
+
+      $('#query').appendChild(
         'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS CNT FROM ' +
           $('#participants_database').val() +
           ' GROUP BY FIRST_NAME, LAST_NAME HAVING COUNT(*) > 1 '
