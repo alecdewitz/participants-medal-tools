@@ -133,7 +133,7 @@
     });
   }
 
-  function clearParticipants() {
+  async function clearParticipants() {
     var query = 'DELETE FROM ' + $('#participants_database').val();
     alert(query);
 
