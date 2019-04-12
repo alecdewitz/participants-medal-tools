@@ -261,7 +261,7 @@
       );
       await run_sql_query();
 
-      $('#quantity').on('change', function () {
+      $('#quantity').on('change', async function () {
         if (!$('#quantity').val()) {
           $('#query').val(
             'SELECT FIRST_NAME, LAST_NAME, EMAIL, Count(*) AS RACE_COUNT FROM ' +
@@ -279,7 +279,7 @@
         await run_sql_query();
       });
 
-      $('#run_query_button').on('click', function () {
+      $('#run_query_button').on('click', async function () {
         if (check_sql_query()) {
           await run_sql_query();
         }
