@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Plugin Name:       Participants Medal Setup
+ * Plugin Name:       Participants Medal Tools
  * Plugin URI:        https://github.com/alecdewitz/participants-medal-tools
- * Description:       Setup Lifetime, to operate use the plugin page under Tools &gt; <a href="tools.php?page=run-sql-query">Participants Medal Tools</a>.
+ * Description:       Tools for Lifetime to operate use the plugin page under Tools &gt; <a href="tools.php?page=run-sql-query">Participants Medal Tools</a>.
  * Version:           1.0.67
  * Author:            Alec Dewitz
  * License:           GPL-2.0+
@@ -40,7 +40,7 @@ if ( class_exists( 'Participants_Db') ) {
   function pdb_custom_templates_initialize () {
 	global $PDb_Custom_Templates;
 	if (!is_object(@$PDb_Custom_Templates) && version_compare(Participants_Db::$plugin_version, '1.7.5', '>')) {
-	  require_once plugin_dir_path(__FILE__) . 'PDb_Custom_Templates.php';
+	  require_once plugin_dir_path(__FILE__) . 'includes/PDb_Custom_Templates.php';
 	  $PDb_Custom_Templates = new PDb_Custom_Templates(__FILE__);
 	}
   }

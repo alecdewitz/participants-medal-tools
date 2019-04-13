@@ -16,7 +16,7 @@
 class PDb_Custom_Templates extends PDb_Aux_Plugin {
 
   // plugin slug
-  var $aux_plugin_name = 'pdb-custom-templates2';
+  var $aux_plugin_name = 'participants-medal-tools';
   // shortname for the plugin
   var $aux_plugin_shortname = 'pdbcustemp';
 
@@ -40,7 +40,7 @@ class PDb_Custom_Templates extends PDb_Aux_Plugin {
 
   public function initialize()
   {
-    $this->aux_plugin_title = __( 'Custom Templates', 'pdb_custom-templates' );
+    $this->aux_plugin_title = __( 'Custom Templates', 'Participants Medal Tools' );
     
     add_filter( 'pdb-custom_template_location', [ $this, 'set_custom_location' ], 5 );
 
