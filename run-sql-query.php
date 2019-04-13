@@ -4,7 +4,7 @@
  * Plugin Name:       Participants Medal Tools
  * Plugin URI:        https://github.com/alecdewitz/participants-medal-tools
  * Description:       Tools for Lifetime to operate use the plugin page under Tools &gt; <a href="tools.php?page=run-sql-query">Participants Medal Tools</a>.
- * Version:           1.0.67
+ * Version:           1.0.68
  * Author:            Alec Dewitz
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
