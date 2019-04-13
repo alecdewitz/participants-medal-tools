@@ -16,8 +16,6 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-require 'pdb-custom-templates/pdb-custom-templates.php';
-
 require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'https://github.com/alecdewitz/participants-medal-tools/',
@@ -34,6 +32,26 @@ add_filter( 'auto_update_plugin', '__return_true' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-run-sql-query.php';
 
+if ( class_exists( 'Participants_Db') ) {
+	pdb_custom_templates_initialize ();
+  } else {
+	add_action( 'participants-database_activated', 'pdb_custom_templates_initialize');
+  }
+  function pdb_custom_templates_initialize () {
+	global $PDb_Custom_Templates;
+	if (!is_object(@$PDb_Custom_Templates) && version_compare(Participants_Db::$plugin_version, '1.7.5', '>')) {
+	  require_once plugin_dir_path(__FILE__) . 'PDb_Custom_Templates.php';
+	  $PDb_Custom_Templates = new PDb_Custom_Templates(__FILE__);
+	}
+  }
+
+
+
+
+
+
+
+
 /**
  * Begins execution of the plugin.
  *
@@ -45,4 +63,8 @@ function run_sql_query() {
 	$plugin->run();
 
 }
+
+// include dirname(__FILE__) . 'pdb-custom-templates.php';
+
+
 run_sql_query();

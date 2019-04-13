@@ -1,12 +1,4 @@
 <?php
-/*
- * Plugin Name: Participants Database Custom Templates
- * Version: 2.3
- * Description: provides an update-safe location for custom templates
- * Author: Roland Barker, xnau webdesign
- * Plugin URI: http://xnau.com/participants-database/
- * Text Domain: pdb_custom-templates
- */
 if ( class_exists( 'Participants_Db') ) {
   pdb_custom_templates_initialize ();
 } else {
